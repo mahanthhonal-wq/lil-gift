@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17131f">
+  <meta name="description" content="A funny, heartfelt appreciation page made especially for Divya, an irreplaceable best friend.">
+  <title>For Divya — A Best Friend Appreciation Page</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f7eef6;
+      --muted: #c8bdd0;
+      --pink: #f2a8be;
+      --rose: #f08cab;
+      --lilac: #bfa9f2;
+      --yellow: #f5d68f;
+      --cream: #17131f;
+      --paper: #211c2d;
+      --line: rgba(255, 255, 255, .13);
+      --shadow: 0 24px 70px rgba(0, 0, 0, .36);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 9% 9%, rgba(156,79,119,.18), transparent 25rem),
+        radial-gradient(circle at 93% 26%, rgba(103,75,151,.22), transparent 27rem),
+        linear-gradient(180deg, #121019 0%, #191522 53%, #181322 100%);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+    button, input { font: inherit; }
+    button { color: inherit; }
+    a { color: inherit; }
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .topline { padding: 19px 0 10px; display:flex; justify-content:space-between; align-items:center; gap:14px; }
+    .brand { display:flex; align-items:center; gap:10px; font-size:12px; font-weight:900; letter-spacing:.04em; }
+    .brand-mark { width:34px; height:34px; display:grid; place-items:center; border-radius:12px; color:#874c73; background:var(--pink); font-size:18px; transform:rotate(-7deg); }
+    .tiny-label { padding:9px 13px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:rgba(40,33,52,.8); font-size:10px; font-weight:800; letter-spacing:.09em; text-transform:uppercase; }
+    .hero { min-height:590px; display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:30px; padding:62px 0 70px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; margin:0 0 18px; color:#e8a9c1; font-size:11px; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    .eyebrow span { width:8px; height:8px; border-radius:50%; background:#e9809c; box-shadow:0 0 0 5px rgba(233,128,156,.14); }
+    h1 { max-width:650px; margin:0; font:700 clamp(52px,7.5vw,92px)/.96 var(--serif); letter-spacing:-.065em; }
+    h1 em { color:#ffabc3; font-style:normal; }
+    .hero-copy { max-width:530px; margin:24px 0 27px; color:var(--muted); font-size:15px; line-height:1.8; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:11px; }
+    .button { min-height:48px; padding:0 19px; display:inline-flex; align-items:center; justify-content:center; gap:8px; border:1px solid transparent; border-radius:999px; cursor:pointer; font-size:12px; font-weight:900; text-decoration:none; transition:transform .2s, box-shadow .2s, background .2s; }
+    .button:hover { transform:translateY(-3px); box-shadow:0 12px 22px rgba(118,74,104,.14); }
+    .button-primary { color:#fff; background:#9b5e83; }
+    .button-soft { border-color:var(--line); background:rgba(38,31,49,.82); }
+    .hero-footnote { margin:19px 0 0; color:#b9aec1; font-size:10px; }
+    .hero-art { position:relative; min-height:420px; display:grid; place-items:center; }
+    .orb { position:absolute; width:370px; height:370px; border-radius:50%; background:linear-gradient(145deg,#f7c0cf,#fce6b1 55%,#d9c9ff); filter:drop-shadow(0 28px 36px rgba(147,93,128,.15)); }
+    .orb:before,.orb:after { content:""; position:absolute; border:1px dashed rgba(108,70,111,.18); border-radius:50%; }
+    .orb:before { inset:-22px; }
+    .orb:after { inset:-44px; }
+    .note-card { position:relative; width:min(340px,82%); padding:27px 25px 24px; border:1px solid rgba(95,61,93,.1); border-radius:22px 22px 22px 7px; background:var(--paper); box-shadow:var(--shadow); transform:rotate(3deg); }
+    .note-top { display:flex; justify-content:space-between; align-items:center; color:#e6abc0; font-size:9px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .note-top b { width:31px; height:31px; display:grid; place-items:center; border-radius:50%; color:#985c7e; background:#ffe6ed; font-size:17px; }
+    .note-card h2 { margin:20px 0 9px; font:700 33px/1.02 var(--serif); letter-spacing:-.045em; }
+    .note-card p { margin:0; color:var(--muted); font-size:12px; line-height:1.75; }
+    .scribble { margin-top:21px; padding-top:14px; border-top:1px solid var(--line); color:#9d6485; font:italic 15px var(--serif); }
+    .sticker { color:#46324b; position:absolute; z-index:1; padding:12px 15px; border:1px solid rgba(82,60,89,.08); border-radius:15px; background:white; box-shadow:0 12px 28px rgba(82,60,89,.12); font-size:10px; font-weight:900; }
+    .sticker-one { top:39px; right:2px; transform:rotate(7deg); background:#fff5ca; }
+    .sticker-two { bottom:34px; left:0; transform:rotate(-8deg); background:#f0eaff; }
+    .sparkle { position:absolute; color:#ce829d; font-size:27px; animation:float 4s ease-in-out infinite; }
+    .sparkle-a { top:50px; left:14%; }
+    .sparkle-b { right:8%; bottom:68px; animation-delay:-1.7s; }
+    .sparkle-c { top:27%; right:7%; font-size:19px; animation-delay:-.7s; }
+    .dedication-banner { margin:0 auto 76px; padding:17px 25px; display:flex; justify-content:center; align-items:center; gap:18px; border:1px solid rgba(242,168,190,.2); border-radius:20px; background:linear-gradient(100deg,rgba(242,168,190,.08),rgba(191,169,242,.12)); text-align:center; }
+    .dedication-banner div { display:flex; align-items:baseline; gap:10px; }
+    .dedication-label { color:#d6c7dc; font-size:9px; font-weight:900; letter-spacing:.16em; }
+    .dedication-name { color:#ffabc3; font:700 22px var(--serif); letter-spacing:.06em; }
+    .dedication-message { color:var(--muted); font-size:11px; }
+    .dedication-star { color:#e9a8c0; font-size:17px; }
+    .section { padding:62px 0 79px; }
+    .section-heading { max-width:660px; margin:0 auto 31px; text-align:center; }
+    .section-heading .eyebrow { margin-bottom:12px; }
+    .section-heading h2 { margin:0; font:700 clamp(38px,5vw,60px)/1 var(--serif); letter-spacing:-.06em; }
+    .section-heading p { margin:14px 0 0; color:var(--muted); font-size:13px; line-height:1.7; }
+    .letter-grid { display:grid; grid-template-columns:1.15fr .85fr; gap:18px; align-items:stretch; }
+    .letter, .poem { padding:32px; border:1px solid var(--line); border-radius:24px; box-shadow:0 15px 45px rgba(90,58,87,.07); }
+    .letter { background:rgba(34,29,46,.88); }
+    .poem { position:relative; overflow:hidden; background:linear-gradient(145deg,#292138,#30202e); }
+    .poem:after { content:"✿"; position:absolute; right:17px; bottom:-27px; color:rgba(175,126,174,.18); font-size:145px; transform:rotate(-18deg); }
+    .card-kicker { margin:0 0 14px; color:#e9a8c0; font-size:9px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+    .letter h3,.poem h3 { margin:0 0 13px; font:700 29px/1.05 var(--serif); letter-spacing:-.04em; }
+    .letter p { margin:0 0 13px; color:#d5c9dc; font-size:13px; line-height:1.85; }
+    .letter .signoff { margin:18px 0 0; color:#a05e82; font:italic 17px var(--serif); }
+    .poem-lines { position:relative; z-index:1; margin:0; color:#d5c9dc; font:italic 15px/1.9 var(--serif); }
+    .poem-lines span { display:block; }
+    .poem .signoff { position:relative; z-index:1; margin-top:18px; color:#9b5e83; font-size:11px; font-weight:900; }
+    .laugh-section { padding:60px 0 70px; }
+    .laugh-panel { padding:36px; border-radius:26px; background:#322941; color:#fffaf6; box-shadow:var(--shadow); display:grid; grid-template-columns:.75fr 1.25fr; align-items:center; gap:30px; }
+    .laugh-intro .eyebrow { color:#f2c2d1; }
+    .laugh-intro h2 { margin:0; font:700 clamp(35px,4.3vw,52px)/.98 var(--serif); letter-spacing:-.055em; }
+    .laugh-intro p { margin:15px 0 0; color:#cfc7d7; font-size:12px; line-height:1.7; }
+    .laugh-card { min-height:172px; padding:26px 28px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(255,255,255,.15); border-radius:19px; background:rgba(255,255,255,.07); }
+    .laugh-card small { color:#f2c2d1; font-size:9px; font-weight:900; letter-spacing:.13em; text-transform:uppercase; }
+    .laugh-card blockquote { margin:15px 0; color:white; font:italic 22px/1.35 var(--serif); }
+    .laugh-card .button { align-self:flex-start; color:#392d43; background:#ffe7a6; }
+    .tiny-promises { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:20px; }
+    .promise { padding:19px; border:1px solid var(--line); border-radius:18px; background:rgba(36,30,47,.82); }
+    .promise b { display:block; margin-bottom:7px; font-size:12px; }
+    .promise p { margin:0; color:var(--muted); font-size:11px; line-height:1.6; }
+    .closing { padding:69px 0 75px; text-align:center; }
+    .closing-card { position:relative; overflow:hidden; padding:44px 25px; border:1px solid var(--line); border-radius:28px; background:linear-gradient(120deg,#302439,#292039 55%,#38212d); }
+    .closing-card h2 { max-width:740px; margin:0 auto; font:700 clamp(38px,5vw,63px)/1 var(--serif); letter-spacing:-.06em; }
+    .closing-card p { max-width:610px; margin:17px auto 22px; color:var(--muted); font-size:13px; line-height:1.75; }
+    .heart-button { min-width:165px; }
+    .footer { padding:21px 0 34px; display:flex; justify-content:space-between; gap:15px; color:#b8adbf; font-size:10px; }
+    .toast { position:fixed; left:50%; bottom:22px; z-index:5; max-width:calc(100% - 28px); padding:12px 17px; border:1px solid rgba(68,44,79,.1); border-radius:999px; color:var(--ink); background:#272133; color:#fff4f8; box-shadow:0 12px 32px rgba(0,0,0,.35); font-size:11px; font-weight:800; opacity:0; pointer-events:none; transform:translate(-50%,14px); transition:.25s; }
+    .toast.show { opacity:1; transform:translate(-50%,0); }
+    .confetti-heart { position:fixed; z-index:6; pointer-events:none; font-size:17px; animation:pop 1.5s ease-out forwards; }
+    @keyframes float { 0%,100% { transform:translateY(0) rotate(-7deg); } 50% { transform:translateY(-12px) rotate(8deg); } }
+    @keyframes pop { 0% { opacity:0; transform:translateY(0) scale(.4) rotate(0deg); } 12% { opacity:1; } 100% { opacity:0; transform:translateY(-150px) scale(1.2) rotate(24deg); } }
+    @media (max-width: 780px) {
+      .hero { min-height:0; grid-template-columns:1fr; padding:56px 0 55px; }
+      .hero-art { min-height:400px; margin-top:8px; }
+      .dedication-banner { flex-wrap:wrap; margin-bottom:43px; }
+      .letter-grid,.laugh-panel { grid-template-columns:1fr; }
+      .laugh-panel { padding:27px; }
+      .tiny-promises { grid-template-columns:1fr; }
+    }
+    @media (max-width: 520px) {
+      .page { width:calc(100% - 30px); }
+      .topline { align-items:flex-start; flex-direction:column; }
+      .hero { padding-top:42px; }
+      .hero-copy { font-size:13px; }
+      .hero-art { min-height:340px; }
+      .orb { width:min(78vw,310px); height:min(78vw,310px); }
+      .note-card { padding:22px; }
+      .note-card h2 { font-size:29px; }
+      .sticker-one { right:-3px; top:14px; }
+      .sticker-two { left:-2px; bottom:8px; }
+      .dedication-banner { gap:9px; padding:15px; margin-bottom:30px; }
+      .dedication-banner div { flex-direction:column; align-items:center; gap:2px; }
+      .dedication-message { font-size:10px; }
+      .section { padding-block:48px 56px; }
+      .letter,.poem { padding:24px; }
+      .laugh-card { padding:21px; }
+      .laugh-card blockquote { font-size:19px; }
+      .footer { flex-direction:column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page topline">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">♥</span><span>A very official bestie appreciation page</span></div>
+    <div class="tiny-label">Made with love &amp; mildly dramatic feelings</div>
+  </header>
+
+  <main>
+    <section class="page hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow"><span></span> A small internet-sized hug</p>
+        <h1 id="hero-title">For my favorite <em>DIVYA</em>.</h1>
+        <p class="hero-copy">You are the person I can trust with my snack opinions and call when life is being a little too life-ish. I'm happiest whenever I'm with you, and I'll love you always. This page is your reminder that you're loved a lot—and teased just the right amount.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#letter">Open your tiny love letter <span aria-hidden="true">♥</span></a>
+          <button class="button button-soft" id="smile-button" type="button">I need a smile</button>
+        </div>
+        <p class="hero-footnote">Friendship status: annoyingly permanent. No unsubscribe button available.</p>
+      </div>
+      <div class="hero-art" aria-label="A cute illustrated note for a best friend">
+        <span class="sparkle sparkle-a" aria-hidden="true">✦</span>
+        <span class="sparkle sparkle-b" aria-hidden="true">✿</span>
+        <span class="sparkle sparkle-c" aria-hidden="true">✧</span>
+        <div class="orb" aria-hidden="true"></div>
+        <div class="sticker sticker-one">100% BESTIE APPROVED</div>
+        <div class="note-card">
+          <div class="note-top"><span>Top secret document</span><b aria-hidden="true">♥</b></div>
+          <h2>Reasons you're<br>my person</h2>
+          <p>Excellent listener. Elite meme taste. Will tell me when I’m being dramatic (and then join me).</p>
+          <div class="scribble">Signed, your favorite pain in the neck</div>
+        </div>
+        <div class="sticker sticker-two">Snacks are better shared<br>(with you, specifically)</div>
+      </div>
+    </section>
+
+    <section class="page dedication-banner" aria-label="Made especially for Divya">
+      <span class="dedication-star" aria-hidden="true">✦</span>
+      <div><span class="dedication-label">THIS LITTLE PAGE IS FOR</span><strong class="dedication-name">DIVYA</strong></div>
+      <span class="dedication-message">Best friends by choice, troublemakers by nature.</span>
+      <span class="dedication-star" aria-hidden="true">✦</span>
+    </section>
+
+    <section class="page section" id="letter" aria-labelledby="letter-title">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> The sentimental bit (brace yourself)</p>
+        <h2 id="letter-title">A note for DIVYA<br>from your favorite chaos gremlin</h2>
+        <p>Mostly jokes. A tiny bit of emotional sincerity. Please don't make it weird by being surprised.</p>
+      </div>
+      <div class="letter-grid">
+        <article class="letter">
+          <p class="card-kicker">Open when you need a reminder</p>
+          <h3>Dear DIVYA,</h3>
+          <p>I hope you know how much brighter the ordinary bits of life get just because you're in them. Thank you for listening to my stories—even the ones with unnecessary backstory, confusing side characters, and absolutely no point.</p>
+          <p>Thank you for making me laugh when I need it, telling me the truth when I need that more, and being the kind of person who feels like home wherever we are. I might roast you for sport, but I would also defend you like it’s my full-time job.</p>
+          <p>You're clever, kind, wonderfully ridiculous, and far more important to me than I say out loud. I'm lucky we're friends. If you ever forget that, come back to this page. If you still forget, I will send you seventeen reminders and at least one questionable meme.</p>
+          <p class="signoff">All my love (and 63% of my fries),<br>Your bestie</p>
+        </article>
+        <article class="poem">
+          <p class="card-kicker">A tiny poem, because you deserve one</p>
+          <h3>My favorite constant</h3>
+          <p class="poem-lines">
+            <span>When plans go sideways, days feel long,</span>
+            <span>You turn my sighs to one more song.</span>
+            <span>A silly meme, a snack, a grin,</span>
+            <span>And soon the sunshine wanders in.</span>
+            <span>&nbsp;</span>
+            <span>You hear my stories, every one,</span>
+            <span>Even the ones that should be done.</span>
+            <span>You tell the truth, then make me grin,</span>
+            <span>The kind of friend I'm lucky to win.</span>
+            <span>&nbsp;</span>
+            <span>We'll split the fries and talk all night,</span>
+            <span>Then roast my choices (you'll be right).</span>
+            <span>Through every change and every view,</span>
+            <span>I know my world is brighter with you.</span>
+            <span>&nbsp;</span>
+            <span>You're my safe place, laugh, and home,</span>
+            <span>No matter where our paths may roam.</span>
+          </p>
+          <p class="signoff">No refunds. No exchanges. Best friend law.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page laugh-section" aria-labelledby="laugh-title">
+      <div class="laugh-panel">
+        <div class="laugh-intro">
+          <p class="eyebrow"><span></span> Scientific bestie research</p>
+          <h2 id="laugh-title">Your daily dose of appreciation</h2>
+          <p>Peer reviewed by me, who is extremely biased and also correct.</p>
+        </div>
+        <div class="laugh-card">
+          <small id="compliment-label">Today's official finding</small>
+          <blockquote id="compliment" aria-live="polite">You are the human version of finding extra fries at the bottom of the bag.</blockquote>
+          <button class="button" id="compliment-button" type="button">Another one, please</button>
+        </div>
+      </div>
+      <div class="tiny-promises" aria-label="Best friend promises">
+        <article class="promise"><b>Emergency pep talks</b><p>Available any time. May include snacks, caps lock, and an unreasonable amount of encouragement.</p></article>
+        <article class="promise"><b>Unfiltered honesty</b><p>I will tell you when your outfit is great and when your crush has the personality of plain toast.</p></article>
+        <article class="promise"><b>Lifetime membership</b><p>You're stuck with me through every new hobby, weird phase, big dream, and tiny crisis.</p></article>
+      </div>
+    </section>
+
+    <section class="page closing" aria-labelledby="closing-title">
+      <div class="closing-card">
+        <p class="eyebrow"><span></span> One last thing</p>
+        <h2 id="closing-title">You make my life softer, funnier, and a lot less weird.</h2>
+        <p>Actually, you make it more weird too. But in the best way. Thank you for being my person, exactly as you are.</p>
+        <button class="button button-primary heart-button" id="heart-button" type="button">Send a tiny hug <span aria-hidden="true">♥</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page footer">
+    <span>Made for one very special best friend.</span>
+    <span>Built with affection, inside jokes, and probably a snack break.</span>
+  </footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    const compliments = [
+      "You are the human version of finding extra fries at the bottom of the bag.",
+      "I'd share my snacks with you. This is basically a legally binding declaration of love.",
+      "You're proof that friendship can be 50% emotional support and 50% sending memes at 1 a.m.",
+      "If friendship were a group project, I'd still pick you—even though neither of us read the instructions.",
+      "You make ordinary days feel like a blooper reel I actually want to watch.",
+      "Best friend rating: 11/10. Would voluntarily listen to the same story for the eighth time.",
+      "You have the rare gift of making a bad day feel smaller. I bring enough drama for both of us.",
+      "You're my favorite notification, even when you send a blurry photo with zero explanation.",
+      "Thanks for being my unpaid therapist. Your payment is my loyalty and occasional fries.",
+      "You are an absolute delight. Annoyingly, I have evidence."
+    ];
+
+    const complimentNode = document.querySelector("#compliment");
+    const toast = document.querySelector("#toast");
+    let toastTimer;
+
+    document.querySelector("#compliment-button").addEventListener("click", () => {
+      const current = complimentNode.textContent;
+      const choices = compliments.filter((line) => line !== current);
+      complimentNode.textContent = choices[Math.floor(Math.random() * choices.length)];
+      document.querySelector("#compliment-label").textContent = "New peer-reviewed finding";
+      popHearts(8);
+    });
+
+    document.querySelector("#smile-button").addEventListener("click", () => {
+      document.querySelector("#compliment-button").click();
+      document.querySelector("#laugh-title").scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+
+    document.querySelector("#heart-button").addEventListener("click", () => {
+      popHearts(24);
+      showToast("Hug delivered. Please allow 3–5 business seconds for maximum warmth.");
+    });
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 2900);
+    }
+
+    function popHearts(count) {
+      const colors = ["♥", "♡", "✦", "✿"];
+      for (let i = 0; i < count; i += 1) {
+        const heart = document.createElement("span");
+        heart.className = "confetti-heart";
+        heart.textContent = colors[Math.floor(Math.random() * colors.length)];
+        heart.style.left = (8 + Math.random() * 84) + "vw";
+        heart.style.top = (56 + Math.random() * 30) + "vh";
+        heart.style.color = ["#d9799b", "#9770bb", "#e4a54e", "#e2a4b8"][Math.floor(Math.random() * 4)];
+        heart.style.animationDelay = (Math.random() * .35) + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1900);
+      }
+    }
+  </script>
+  
+</body>
+</html>
+
+
+
+
+
+
